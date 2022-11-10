@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+      layout:decorate="layouts/mainLayout">
+<body>
+<div class="container" layout:fragment="content">
+
+  <div class="row row-cols-2">
+    <form th:action="@{'/categories/edit'}" method="post" th:object="${category}">
+      <h2 class="text-center mt-3 mb-3">Edit Category</h2>
+      <div class="mb-3">
+        <label for="categoryName" class="form-label">Name</label>
+        <input type="text" class="form-control" id="categoryName" th:field="*{name}" th:value="${category.name}" required>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+      </div>
+    </form>
+  </div>
+
+
+</div>
+</body>
+</html>
