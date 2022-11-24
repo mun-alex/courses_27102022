@@ -5,9 +5,20 @@
       layout:decorate="layouts/mainLayout">
 <body>
 <div class="container" layout:fragment="content">
-
-    <h1 class="text-center mt-5">index page</h1>
-
+    <h1 class="text-center mt-3">Choose Your Course!</h1>
+    <div class="row mt-3">
+        <div class="col-4" th:each="course : ${coursesList}" >
+            <div class="card mt-3">
+                <div class="card-header fw-bold" th:text="${course.name}"></div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" th:text="'Category: ' + ${course.category.name}"></li>
+                    <li class="list-group-item" th:text="'Rating:'"></li>
+                    <li class="list-group-item"><a th:href="@{'/courses/details/' + ${course.id}}">more...</a></li>
+                    <li class="list-group-item"><a th:href="@{'/' + ${course.id}}">comments</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>
